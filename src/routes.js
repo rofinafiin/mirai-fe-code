@@ -57,7 +57,7 @@ const DokumenAdministrasi = React.lazy(() => import('./views/tahapan/dokumen/Dok
 const DokumenTestKemampuanDasar = React.lazy(
   () => import('./views/tahapan/tkd/DokumenTesKemampuanDasar'),
 )
-const DokumenWawancara = React.lazy(() => import('./views/tahapan/Wawancara/BuktiWawancara'))
+const DokumenWawancara = React.lazy(() => import('./views/tahapan/wawancara/BuktiWawancara'))
 const DokumenPembayaran = React.lazy(() => import('./views/tahapan/pembayaran/BuktiPembayaran'))
 
 const routes = [
