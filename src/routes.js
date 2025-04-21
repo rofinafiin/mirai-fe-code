@@ -52,7 +52,7 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 //tahapan
-const Biodata = React.lazy(() => import('./views/tahapan/biodata/Biodata'))
+const Biodata = React.lazy(() => import('./views/tahapan/biodata/biodata'))
 const DokumenAdministrasi = React.lazy(() => import('./views/tahapan/dokumen/DokumenAdministrasi'))
 const DokumenTestKemampuanDasar = React.lazy(
   () => import('./views/tahapan/tkd/DokumenTesKemampuanDasar'),
