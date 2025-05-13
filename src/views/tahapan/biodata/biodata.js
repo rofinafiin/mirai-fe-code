@@ -29,6 +29,9 @@ const Biodata = () => {
     nik_ktp: '',
     alamat: '',
     email: '',
+    nama_ortu: '',
+    handphone_ortu: '',
+    alamat_ortu: '',
   })
 
   const handleChange = (e) => {
@@ -162,6 +165,24 @@ const Biodata = () => {
               <CCol>
                 <CFormLabel htmlFor="alamat">Alamat</CFormLabel>
                 <CFormInput name="alamat" value={formData.alamat} onChange={handleChange} />
+              </CCol>
+            </CRow>
+
+            <CRow className="mb-3">
+              <CCol md={6}>
+                <CFormLabel htmlFor="nama_ortu">Nama Orang Tua</CFormLabel>
+                <CFormInput name="nama_ortu" value={formData.nama_ortu} onChange={handleChange} />
+              </CCol>
+              <CCol md={6}>
+                <CFormLabel htmlFor="handphone_ortu">Nomor HP Orang Tua</CFormLabel>
+                <CFormInput name="handphone_ortu" value={formData.handphone_ortu} onChange={handleChange} />
+              </CCol>
+            </CRow>
+
+            <CRow className="mb-3">
+              <CCol>
+                <CFormLabel htmlFor="alamat_ortu">Alamat Orang Tua</CFormLabel>
+                <CFormInput name="alamat_ortu" value={formData.alamat_ortu} onChange={handleChange} />
               </CCol>
             </CRow>
 

@@ -17,6 +17,7 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import Swal from 'sweetalert2'
 import Cookies from 'js-cookie'
+import { jwtDecode } from 'jwt-decode'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -57,12 +58,16 @@ const Login = () => {
         sameSite: 'Strict',
       })
 
+      // Decode token to check role
+      const decoded = jwtDecode(result.token);
+      const redirectPath = decoded.roleid === 1 ? '/admin' : '/dashboard';
+
       Swal.fire({
         icon: 'success',
         title: 'Login Berhasil!',
         text: 'Anda Berhasil Login ke Dashboard',
       }).then(() => {
-        navigate('/dashboard');
+        navigate(redirectPath);
       });
 
     } catch (error) {
@@ -70,6 +75,7 @@ const Login = () => {
       alert('Terjadi kesalahan saat login');
     }
   }
+
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -78,7 +84,7 @@ const Login = () => {
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
-                  <CForm>
+                  <CForm onSubmit={handleSubmit}>
                     <h1>Login</h1>
                     <p className="text-body-secondary">Masuk Menggunakan Akun Anda</p>
                     <CInputGroup className="mb-3">
@@ -106,7 +112,7 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4" onClick={handleSubmit}>
+                        <CButton type="submit" color="primary" className="px-4">
                           Login
                         </CButton>
                       </CCol>

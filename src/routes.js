@@ -1,4 +1,5 @@
 import React from 'react'
+import ProtectedRoute from './components/ProtectedRoute'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
@@ -60,8 +61,19 @@ const DokumenTestKemampuanDasar = React.lazy(
 const DokumenWawancara = React.lazy(() => import('./views/tahapan/wawancara/BuktiWawancara'))
 const DokumenPembayaran = React.lazy(() => import('./views/tahapan/pembayaran/BuktiPembayaran'))
 
+const AdminDashboard = React.lazy(() => import('./views/admin/Dashboard'))
+
 const routes = [
   { path: '/', exact: true, name: 'Login' },
+  {
+    path: '/admin',
+    name: 'Admin Dashboard',
+    element: (
+      <ProtectedRoute requiredRole={1}>
+        <AdminDashboard />
+      </ProtectedRoute>
+    )
+  },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },

@@ -25,6 +25,7 @@ const DokumenAdministrasiForm = () => {
     sertifikat_bahasa: null,
     sertifikat_keahlian: null,
     surat_keterangan_sehat: null,
+    curriculum_vitae: null,
   })
 
   const handleFileChange = (e) => {
@@ -54,7 +55,7 @@ const DokumenAdministrasiForm = () => {
         method: 'POST',
         body: data,
         headers: {
-          Authorization: `Bearer ${token}`, // atau pakai js-cookie
+          Authorization: `Bearer ${token}`,
         },
       })
 
@@ -139,6 +140,12 @@ const DokumenAdministrasiForm = () => {
               <CCol md={6}>
                 <CFormLabel htmlFor="pas_foto">Pas Foto (dalam jpg)</CFormLabel>
                 <CFormInput type="file" name="pas_foto" accept=".jpg" onChange={handleFileChange} />
+              </CCol>
+            </CRow>
+            <CRow className="mb-3">
+              <CCol>
+                <CFormLabel htmlFor="curriculum_vitae">Curriculum Vitae</CFormLabel>
+                <CFormInput type="file" name="curriculum_vitae" accept=".pdf" onChange={handleFileChange} />
               </CCol>
             </CRow>
 
